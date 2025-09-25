@@ -1,0 +1,73 @@
+/* ===== Reset & Center Layout ===== */
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+body {
+  height: 100vh;              /* ✅ fill viewport height */
+  display: flex;              /* ✅ flexbox layout */
+  justify-content: center;    /* ✅ center horizontally */
+  align-items: center;        /* ✅ center vertically */
+  background: radial-gradient(circle at center, #02021a 40%, #000 100%);
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* ===== Space Container ===== */
+.space {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+/* ===== Earth ===== */
+.earth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #61a8ff 0%, #0b3b66 70%);
+  box-shadow: 0 0 28px rgba(58, 150, 255, 0.55),
+              inset 0 -6px 14px rgba(0,0,0,0.25);
+}
+
+/* ===== Orbit ===== */
+.orbit {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,0.08);
+  animation: orbit 5s linear infinite;
+}
+
+/* ===== Moon ===== */
+.moon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #f2f2f2 0%, #b3b3b3 70%);
+  box-shadow: 0 0 10px rgba(255,255,255,0.7),
+              inset 0 -3px 6px rgba(0,0,0,0.15);
+}
+
+/* ===== Orbit Animation ===== */
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translate(-50%, -50%); /* ✅ order required */
+  }
+  100% {
+    transform: rotate(360deg) translate(-50%, -50%);
+  }
+}
